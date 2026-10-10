@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const SignUp = () => {
     const navigate =  useNavigate();
@@ -18,7 +19,7 @@ const SignUp = () => {
           );
 
           if(existingUser){
-            alert("Email Already Registered ")
+            toast.error("Email Already Registered")
             return;
           }
       
@@ -31,6 +32,7 @@ const SignUp = () => {
         localStorage.setItem("users", JSON.stringify(updatedUsers));
         reset();
         navigate("/auth/login")
+        toast.success("You Are Registered Now You Can Log In");
     }
 
 

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const Login = () => {
    const navigate = useNavigate();
@@ -14,7 +15,7 @@ const Login = () => {
                  user.password === data.password
         )
         if(!existingUser){
-          alert("Invalid Email Or Password");
+          toast.error("Invalid Email Or Password")
           return;
         }
         setCurrentUser(existingUser);
@@ -23,6 +24,7 @@ const Login = () => {
 
         reset();
         navigate("/")
+        toast.success("You Are Logged In")
         console.log("Login Successful", existingUser);
     //    console.log("Login data:", data);
     // console.log("Users:", users);
