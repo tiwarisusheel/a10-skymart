@@ -8,14 +8,16 @@ import About from "../pages/About"
 import Cart from "../pages/Cart"
 import MainLayout from "../Layout/MainLayout"
 import ProductDetails from "../pages/ProductDetails"
-import ProtectedRoute from "../components/ProtectedRoute"
+import ProtectedRoute from "./ProtectedRoute"
+import PublicRoutes from "./PublicRoutes"
+
 
 const AppRoutes = () => {
    console.log("🔥 AppRoutes rendered");
   return (
     <div>
         <Routes>
-          <Route element={<ProtectedRoute />} >
+          <Route element={<ProtectedRoute/>} >
           <Route element={<MainLayout />}>
                <Route path="/" element={<Home />} />
                <Route path="/shop" element={<Shop />} />
@@ -24,11 +26,13 @@ const AppRoutes = () => {
                <Route path="/product/:id" element={<ProductDetails />} />
           </Route>
           </Route>
-
+           
+           <Route element={<PublicRoutes/>}>
            <Route path="/auth" element={<AuthLayout />} >
                   <Route index element={<Navigate to="login" replace />} />
                   <Route path="login" element={<Login />} />
                   <Route path="signup" element={<SignUp />} />
+            </Route>
             </Route>
         </Routes>
     </div>
