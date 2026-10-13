@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { nanoid } from "nanoid";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
@@ -171,12 +171,12 @@ const SignUp = () => {
       </form>
       <p className="mt-7 text-center text-sm text-gray-500">
         Already have an account?{" "}
-        <a
+        <Link
           href="/auth/login"
           className="font-semibold text-black hover:underline"
         >
           Login
-        </a>
+        </Link>
       </p>
     </div>
   );

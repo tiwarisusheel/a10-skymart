@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -125,12 +125,12 @@ const Login = () => {
       </form>
       <p className="mt-7 text-center text-sm text-gray-500">
         Don't have an account?{" "}
-        <a
+        <Link
           href="/auth/signup"
           className="font-semibold text-black hover:underline"
         >
           Create account
-        </a>
+        </Link>
       </p>
     </div>
   );
